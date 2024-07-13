@@ -1,0 +1,21 @@
+<h1 class="nav h4">Expense tracker</h1>
+<div>
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
+                aria-expanded="true" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+    </nav>
+    <div class="collapse show" id="navbarToggleExternalContent" data-bs-theme="dark" style="">
+        <div class="bg-dark p-4">
+            <nav class="vertical-nav">
+                <a class="nav1" *ngFor="let menu of sideMenus" [routerLink]="menu.routerLink"><br>
+                    {{menu.label}}
+                </a>
+            </nav>
+        </div>
+    </div>
+</div>

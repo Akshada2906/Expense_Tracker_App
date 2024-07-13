@@ -1,0 +1,51 @@
+<div class="container">
+  <h1>Expense form</h1>
+  <form class="expense-form">
+    <div class="form-group">
+      <label for="date">Date&Time :<span class="asterisk">*</span> </label>
+      <input class="form-control" type="datetime-local" id="date" name="date" [(ngModel)]="date" required
+        #dateInput="ngModel">
+    </div>
+    <div *ngIf="dateInput.invalid && (dateInput.dirty ||dateInput.touched)" class="alert ">
+
+      Date is required.
+    </div>
+
+    <div class="form-group">
+      <label for="date">Amount :<span class="asterisk">*</span> </label>
+      <input class="form-control" type="number" id="amount" name="amount" [(ngModel)]="amount" required
+        #amountInput="ngModel">
+    </div>
+    <div *ngIf="amountInput.invalid && (amountInput.dirty ||amountInput.touched)" class="alert">
+      Amount is required.
+    </div>
+    <div class="form-group">
+      <label for="date">Category:<span class="asterisk">*</span> </label>
+      <select id="Category" name="Category" [(ngModel)]="category" required #categoryInput="ngModel">
+        <option value="Food">Food</option>
+        <option value="Travel">Travel</option>
+        <option value="Housing">Housing</option>
+        <option value="Grocery">Grocery</option>
+        <option value="Beauty">Beauty</option>
+      </select>
+    </div>
+    <div *ngIf="categoryInput.invalid && (categoryInput.dirty || categoryInput.touched)" class="alert">
+      Category is required.
+    </div>
+    <br>
+    <div class="form-group">
+      <label for="date">Payment mode:<span class="asterisk">*</span> </label>
+      <select class="dropdown" id="Payment" name="Payment" [(ngModel)]="payment" required #paymentInput="ngModel">
+        <option value="Online">Online</option>
+        <option value="Offline">Offline</option>
+      </select>
+    </div>
+    <div *ngIf="paymentInput.invalid && (paymentInput.dirty ||paymentInput.touched)" class="alert">
+
+      Payment is required.
+    </div>
+    <div class="form-group add-expense-button">
+      <button class="btn btn-primary" type="submit" (click)="onclick()">Add Expense</button>
+    </div>
+  </form>
+</div>

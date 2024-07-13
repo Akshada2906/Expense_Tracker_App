@@ -1,0 +1,57 @@
+<div class="container">
+  <h1>Income form</h1>
+  <form class="income-form">
+    <div class="form-group">
+      <label for="salary">Salary:<span class="asterisk">*</span></label>
+      <input class="form-control" type="number" id="salary" name="salary" [(ngModel)]="salary" required
+        #salaryInput="ngModel" min="1" max="99999999999">
+    </div>
+    <div *ngIf="salaryInput.invalid && (salaryInput.dirty ||salaryInput.touched)" class="alert">
+      Salary is required.
+    </div>
+
+    <div class="form-group">
+      <label for="source" class="form-label">Source:<span class="asterisk">*</span></label>
+      <input class="form-control" type="text" id="source" name="source" [(ngModel)]="source" required
+        #sourceInput="ngModel">
+        
+    </div>
+    <div *ngIf="sourceInput.invalid && (sourceInput.dirty ||sourceInput.touched)" class="alert">
+      Source is required.
+    </div>
+    <div class="form-group">
+      <label for="validationDefault02" class="form-label">Gratuity:<span class="asterisk">*</span></label>
+      <input class="form-control" type="number" id="number" name="number" [(ngModel)]="gratuity" required
+        #gratuityInput="ngModel">
+    </div>
+    <div *ngIf="gratuity == null && (gratuityInput.dirty || gratuityInput.touched)" class="alert ">
+
+      Gratuity is required.
+    </div>
+    <div *ngIf="gratuity <= 0" class="alert alert-danger">
+      <div *ngIf="gratuityInput.dirty">
+        Gratuity cannot be less than 0.
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="validationDefaultUsername" class="form-label">Provident Fund:<span class="asterisk">*</span></label>
+      <input class="form-control" type="number" id="number" name="number" [(ngModel)]="provident" required
+        #providentInput="ngModel">
+    </div>
+    <div *ngIf="provident == null && (providentInput.dirty || providentInput.touched)" class="alert">
+
+      Provident fund is required.
+    </div>
+    <div class="form-group">
+      <label for="validationDefaultUsername" class="form-label">Date & Time:<span class="asterisk">*</span></label>
+      <input class="form-control" type="datetime-local" id="date" name="date" [(ngModel)]="date" required
+        #dateInput="ngModel">
+    </div>
+    <div *ngIf="date == null && (dateInput.dirty || dateInput.touched)" class="alert">
+      Date & Time is required.
+    </div>
+    <div class="form-group add-income-button">
+      <button class="btn btn-primary" type="submit" (click)="onclickapp()">Add Income</button>
+    </div>
+  </form>
+</div>

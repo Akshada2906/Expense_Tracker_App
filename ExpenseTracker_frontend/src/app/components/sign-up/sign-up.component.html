@@ -1,0 +1,33 @@
+<div class="container">
+    <h3>Sign Up</h3>
+    <form class="signup-form">
+        <div class="form-group">
+            <label for="username">Username:<span class="asterisk">*</span></label><br>
+            <input class="form-control" type="text" id="username" name="username" [(ngModel)]="user.username" required #nameInput="ngModel">
+            <div *ngIf="nameInput.invalid && (nameInput.dirty || nameInput.touched)" class="alert">
+                Name is required.
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="email">Email:<span class="asterisk">*</span></label><br>
+            <input class="form-control" type="email" id="email" name="email" [(ngModel)]="user.email" required #emailInput="ngModel">
+            <div *ngIf="emailInput.invalid && (emailInput.dirty || emailInput.touched)" class="alert">
+                Email is required.
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="password">Password:<span class="asterisk">*</span></label><br>
+            <input class="form-control" type="password" id="password" name="password" [(ngModel)]="user.password" required #passwordInput="ngModel">
+            <div *ngIf="passwordInput.invalid && (passwordInput.dirty || passwordInput.touched)" class="alert">
+                Password is required.
+            </div>
+        </div>
+        <div class="form-group signin-button">
+            <button class="btn btn-primary" type="submit" (click)="onclick()">Submit</button>
+        </div>
+        <div class="form-group signup5">
+            <label for="login">Already a member?</label>
+            <a routerLink="/login">Login</a>
+        </div>
+    </form>
+</div>
